@@ -23,27 +23,6 @@ class PageController extends AbstractActionController
     protected $resolver;
 
     /**
-     * @var array|Traversable
-     */
-    protected $options;
-
-    /**
-     * @param $options
-     * @throws InvalidArgumentException
-     */
-    public function __construct($options)
-    {
-        if (!is_array($options) && !$options instanceof Traversable) {
-            throw new InvalidArgumentException(sprintf(
-                'Expected array or Traversable object; received "%s"',
-                (is_object($options) ? get_class($options) : gettype($options))
-            ));
-        }
-
-        $this->options = $options;
-    }
-
-    /**
      * @return ResolverInterface
      */
     public function getResolver()
@@ -53,6 +32,18 @@ class PageController extends AbstractActionController
         }
 
         return $this->resolver;
+    }
+
+    /**
+     * @param $option
+     * @return mixed
+     */
+    public function getOption($option)
+    {
+        /** @var Module $module */
+        $module = $this->getServiceLocator()->get('ModuleManager')->getModule(__NAMESPACE__);
+
+        return $module->getOption($option);
     }
 
     /**
@@ -73,8 +64,8 @@ class PageController extends AbstractActionController
     public function onDispatch(MvcEvent $e)
     {
         $matches    = $e->getRouteMatch();
-        $page       = $matches->getParam($this->options['route_param'], null);
-        $template   = $this->options['template_dir'] .'/'. $page;
+        $page       = $matches->getParam($this->getOption('route_param'), null);
+        $template   = $this->getOption('template_dir') .'/'. $page;
 
         if (!$page || !$this->getResolver()->resolve($template)) {
             return $this->notFoundAction();

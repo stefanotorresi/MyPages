@@ -51,13 +51,9 @@ class Module extends AbstractModule implements
      */
     public function getControllerConfig()
     {
-        $module = $this;
-
         return array(
-            'factories' => array(
-                __NAMESPACE__ . '\PageController' => function(ControllerManager $controllerManager) use ($module) {
-                    return new PageController($module->getOptions());
-                }
+            'invokables' => array(
+                __NAMESPACE__ . '\PageController' => __NAMESPACE__ . '\PageController',
             ),
             'aliases' => array(
                 'page' => __NAMESPACE__ . '\PageController',

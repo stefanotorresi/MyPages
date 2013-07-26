@@ -18,7 +18,8 @@
         }
     ],
     "require": {
-        "zf-commons/zfc-base": "*"
+        "zf-commons/zfc-base": "*",
+        "zendframework/zendframework": "2.*"
     },
     "suggest": {
         "phly/phly-simple-page": "You should really check this out instead of MyPage"
