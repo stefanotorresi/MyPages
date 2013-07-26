@@ -1,0 +1,35 @@
+{
+    "name": "stefanotorresi/my-pages",
+    "description": "A brutal rip-off of the Zend Framework web site PageController module, written by Matthew Weier O'Phinney. All credit goes to him.",
+    "type": "library",
+    "keywords": [
+        "zf2",
+        "zend",
+        "module",
+        "page",
+        "controller"
+    ],
+    "homepage": "https://github.com/stefanotorresi/MyPages",
+    "authors": [
+        {
+            "name": "Stefano Torresi",
+            "email": "webdev@stefanotorresi.it",
+            "homepage": "http://stefanotorresi.it"
+        }
+    ],
+    "require": {
+        "zf-commons/zfc-base": "*"
+    },
+    "suggest": {
+        "phly/phly-simple-page": "You should really check this out instead of MyPage"
+    },
+    "autoload": {
+        "psr-0": {
+            "MyPages": "src/"
+        },
+        "classmap": [
+            "./"
+        ]
+    },
+    "license": "MIT"
+}
