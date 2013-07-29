@@ -3,9 +3,7 @@
 namespace MyPagesTest;
 
 use Zend\Loader\AutoloaderFactory;
-use Zend\Mvc\Service\ServiceManagerConfig;
 use Zend\ServiceManager\ServiceManager;
-use Zend\Stdlib\ArrayUtils;
 use RuntimeException;
 
 error_reporting(E_ALL | E_STRICT);
@@ -27,7 +25,10 @@ class Bootstrap
             return;
         }
 
-        $zf2Path = getenv('ZF2_PATH') ?: (defined('ZF2_PATH') ? ZF2_PATH : (is_dir($vendorPath . '/ZF2/library') ? $vendorPath . '/ZF2/library' : false));
+        $zf2Path = getenv('ZF2_PATH') ?:
+            (defined('ZF2_PATH') ? ZF2_PATH :
+                (is_dir($vendorPath . '/ZF2/library') ? $vendorPath . '/ZF2/library' : false)
+            );
 
         if (!$zf2Path) {
             throw new RuntimeException('Unable to load ZF2. Run `php composer.phar install` or define a ZF2_PATH environment variable.');
