@@ -23,7 +23,7 @@ class Module extends AbstractModule implements
         return array(
             __NAMESPACE__ => array(
                 'options' => array(
-                    'route_param' => 'page',
+                    'route_param_name' => 'page',
                     'template_dir' => 'pages',
                 )
             ),
@@ -51,9 +51,16 @@ class Module extends AbstractModule implements
      */
     public function getControllerConfig()
     {
+        $module = $this;
+
         return array(
-            'invokables' => array(
-                __NAMESPACE__ . '\PageController' => __NAMESPACE__ . '\PageController',
+            'factories' => array(
+                __NAMESPACE__ . '\PageController' => function(ControllerManager $cm) use ($module) {
+                    return new PageController(
+                        $module->getOption('route_param_name'),
+                        $module->getOption('template_dir')
+                    );
+                }
             ),
             'aliases' => array(
                 'page' => __NAMESPACE__ . '\PageController',

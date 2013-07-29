@@ -23,6 +23,68 @@ class PageController extends AbstractActionController
     protected $resolver;
 
     /**
+     * @var string
+     */
+    protected $routeParamName;
+
+    /**
+     * @var string
+     */
+    protected $templateDir;
+
+    public function __construct($routeParamName = null, $templateDir = null)
+    {
+        $this->routeParamName = $routeParamName;
+        $this->templateDir = $templateDir;
+    }
+
+    /**
+     * @param string $routeParamName
+     * @return PageController
+     */
+    public function setRouteParamName($routeParamName)
+    {
+        $this->routeParamName = $routeParamName;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRouteParamName()
+    {
+        return $this->routeParamName;
+    }
+
+    /**
+     * @param string $templateDir
+     * @return PageController
+     */
+    public function setTemplateDir($templateDir)
+    {
+        $this->templateDir = $templateDir;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTemplateDir()
+    {
+        return $this->templateDir;
+    }
+
+    /**
+     * @param ResolverInterface $resolver
+     * @return PageController
+     */
+    public function setResolver($resolver)
+    {
+        $this->resolver = $resolver;
+        return $this;
+    }
+
+    /**
      * @return ResolverInterface
      */
     public function getResolver()
@@ -32,18 +94,6 @@ class PageController extends AbstractActionController
         }
 
         return $this->resolver;
-    }
-
-    /**
-     * @param $option
-     * @return mixed
-     */
-    public function getOption($option)
-    {
-        /** @var Module $module */
-        $module = $this->getServiceLocator()->get('ModuleManager')->getModule(__NAMESPACE__);
-
-        return $module->getOption($option);
     }
 
     /**
@@ -64,8 +114,8 @@ class PageController extends AbstractActionController
     public function onDispatch(MvcEvent $e)
     {
         $matches    = $e->getRouteMatch();
-        $page       = $matches->getParam($this->getOption('route_param'), null);
-        $template   = $this->getOption('template_dir') .'/'. $page;
+        $page       = $matches->getParam($this->routeParamName, null);
+        $template   = $this->templateDir ? $this->templateDir .'/'. $page : $page;
 
         if (!$page || !$this->getResolver()->resolve($template)) {
             return $this->notFoundAction();
