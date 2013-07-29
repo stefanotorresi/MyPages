@@ -8,8 +8,6 @@
 
 namespace MyPages;
 
-use InvalidArgumentException;
-use Traversable;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\Mvc\MvcEvent;
 use Zend\View\Model\ViewModel;
@@ -32,6 +30,10 @@ class PageController extends AbstractActionController
      */
     protected $templateDir;
 
+    /**
+     * @param string|null $routeParamName
+     * @param string|null $templateDir
+     */
     public function __construct($routeParamName = null, $templateDir = null)
     {
         $this->routeParamName = $routeParamName;
@@ -39,12 +41,13 @@ class PageController extends AbstractActionController
     }
 
     /**
-     * @param string $routeParamName
+     * @param  string         $routeParamName
      * @return PageController
      */
     public function setRouteParamName($routeParamName)
     {
         $this->routeParamName = $routeParamName;
+
         return $this;
     }
 
@@ -57,12 +60,13 @@ class PageController extends AbstractActionController
     }
 
     /**
-     * @param string $templateDir
+     * @param  string         $templateDir
      * @return PageController
      */
     public function setTemplateDir($templateDir)
     {
         $this->templateDir = $templateDir;
+
         return $this;
     }
 
@@ -75,12 +79,13 @@ class PageController extends AbstractActionController
     }
 
     /**
-     * @param ResolverInterface $resolver
+     * @param  ResolverInterface $resolver
      * @return PageController
      */
     public function setResolver($resolver)
     {
         $this->resolver = $resolver;
+
         return $this;
     }
 
@@ -108,7 +113,7 @@ class PageController extends AbstractActionController
      * Otherwise, returns a view model with a template matching the page from
      * this module.
      *
-     * @param  MvcEvent $e
+     * @param  MvcEvent  $e
      * @return ViewModel
      */
     public function onDispatch(MvcEvent $e)

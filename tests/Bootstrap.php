@@ -3,7 +3,6 @@
 namespace MyPagesTest;
 
 use Zend\Loader\AutoloaderFactory;
-use Zend\ServiceManager\ServiceManager;
 use RuntimeException;
 
 error_reporting(E_ALL | E_STRICT);
@@ -22,6 +21,7 @@ class Bootstrap
 
         if (is_readable($vendorPath . '/autoload.php')) {
             $loader = include $vendorPath . '/autoload.php';
+
             return;
         }
 
