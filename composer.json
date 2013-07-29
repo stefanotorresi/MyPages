@@ -25,6 +25,11 @@
     "require-dev": {
         "satooshi/php-coveralls":    "~0.6"
     },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1.x-dev"
+        }
+    },
     "suggest": {
         "phly/phly-simple-page": "You should really check this out instead of MyPage"
     },
