@@ -1,5 +1,8 @@
 MyPages
 ===
+[![Latest Unstable Version](https://poser.pugx.org/stefanotorresi/my-pages/v/unstable.png)](https://packagist.org/packages/stefanotorresi/my-pages)
+[![Build Status](https://travis-ci.org/stefanotorresi/MyPages.png?branch=master)](https://travis-ci.org/stefanotorresi/MyPages)
+[![Coverage Status](https://coveralls.io/repos/stefanotorresi/MyPages/badge.png?branch=master)](https://coveralls.io/r/stefanotorresi/MyPages?branch=master)
 
 MyPages is a Zend Framework 2 module providing a basic Controller that resolves view templates from the route.
 
