@@ -18,16 +18,13 @@
         }
     ],
     "require": {
+        "php" : ">=5.4.1",
         "stefanotorresi/my-base": "1.*",
-        "zendframework/zend-view": "2.*",
-        "zendframework/zend-http": "2.*"
-    },
-    "require-dev": {
-        "satooshi/php-coveralls":    "~0.6"
+        "zendframework/zendframework" : "2.*"
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "0.1.x-dev"
+            "dev-master": "0.x-dev"
         }
     },
     "suggest": {

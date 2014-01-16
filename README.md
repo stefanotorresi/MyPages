@@ -1,5 +1,6 @@
 MyPages
 ===
+[![Latest Stable Version](https://poser.pugx.org/stefanotorresi/my-pages/v/stable.png)](https://packagist.org/packages/stefanotorresi/my-pages)
 [![Latest Unstable Version](https://poser.pugx.org/stefanotorresi/my-pages/v/unstable.png)](https://packagist.org/packages/stefanotorresi/my-pages)
 [![Build Status](https://travis-ci.org/stefanotorresi/MyPages.png?branch=master)](https://travis-ci.org/stefanotorresi/MyPages)
 [![Coverage Status](https://coveralls.io/repos/stefanotorresi/MyPages/badge.png?branch=master)](https://coveralls.io/r/stefanotorresi/MyPages?branch=master)
