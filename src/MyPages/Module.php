@@ -22,10 +22,8 @@ class Module extends AbstractModule implements
     {
         return array(
             __NAMESPACE__ => array(
-                'options' => array(
-                    'route_param_name' => 'page',
-                    'template_dir' => 'pages',
-                )
+                'route_param_name' => 'page',
+                'template_dir' => 'pages',
             ),
         );
     }
@@ -40,10 +38,9 @@ class Module extends AbstractModule implements
         return array(
             'factories' => array(
                 __NAMESPACE__ . '\PageController' => function (ControllerManager $cm) use ($module) {
-                    return new PageController(
-                        $module->getOption('route_param_name'),
-                        $module->getOption('template_dir')
-                    );
+                    $config = $cm->getServiceLocator()->get('config')[__NAMESPACE__];
+
+                    return new PageController($config['route_param_name'], $config['template_dir']);
                 }
             ),
             'aliases' => array(
