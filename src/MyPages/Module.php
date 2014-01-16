@@ -39,7 +39,7 @@ class Module extends AbstractModule implements
 
         return array(
             'factories' => array(
-                __NAMESPACE__ . '\PageController' => function(ControllerManager $cm) use ($module) {
+                __NAMESPACE__ . '\PageController' => function (ControllerManager $cm) use ($module) {
                     return new PageController(
                         $module->getOption('route_param_name'),
                         $module->getOption('template_dir')
