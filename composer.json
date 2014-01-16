@@ -18,7 +18,7 @@
         }
     ],
     "require": {
-        "zf-commons/zfc-base": "*",
+        "stefanotorresi/my-base": "1.*",
         "zendframework/zend-view": "2.*",
         "zendframework/zend-http": "2.*"
     },

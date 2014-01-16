@@ -9,7 +9,7 @@ namespace MyPages;
 
 use Zend\ModuleManager\Feature;
 use Zend\Mvc\Controller\ControllerManager;
-use ZfcBase\Module\AbstractModule;
+use MyBase\AbstractModule;
 
 class Module extends AbstractModule implements
     Feature\ConfigProviderInterface,
@@ -28,22 +28,6 @@ class Module extends AbstractModule implements
                 )
             ),
         );
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getDir()
-    {
-        return __DIR__ . '/../..';
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getNamespace()
-    {
-        return __NAMESPACE__;
     }
 
     /**
