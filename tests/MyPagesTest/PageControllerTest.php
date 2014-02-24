@@ -118,6 +118,9 @@ class PageControllerTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($fullTemplateName, $result->getTemplate());
     }
 
+    /**
+     * @param string $page
+     */
     public static function templateResolverFactory($page = null)
     {
         return new TemplateMapResolver(array(
