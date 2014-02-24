@@ -28,7 +28,7 @@
         }
     },
     "suggest": {
-        "phly/phly-simple-page": "You should really check this out instead of MyPage"
+        "phly/phly-simple-page": "A more comprehensive module than MyPage"
     },
     "autoload": {
         "psr-0": {
