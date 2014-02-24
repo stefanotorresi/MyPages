@@ -52,6 +52,9 @@ class Bootstrap
 
     }
 
+    /**
+     * @param string $path
+     */
     protected static function findParentPath($path)
     {
         $dir = __DIR__;
