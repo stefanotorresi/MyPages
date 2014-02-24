@@ -5,9 +5,6 @@ namespace MyPagesTest;
 use Zend\Loader\AutoloaderFactory;
 use RuntimeException;
 
-error_reporting(E_ALL | E_STRICT);
-chdir(__DIR__);
-
 class Bootstrap
 {
     public static function init()
@@ -70,5 +67,3 @@ class Bootstrap
         return $dir . '/' . $path;
     }
 }
-
-Bootstrap::init();
