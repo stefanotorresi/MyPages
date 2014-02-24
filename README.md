@@ -8,30 +8,26 @@ MyPages
 
 MyPages is a very simple Zend Framework 2 module, providing a basic Controller that resolves view templates from the route.
 
-This is just a brutal rip-off of the [Zend Framework web site PageController] module,
-written by [Matthew Weier O'Phinney]. All credit goes to him.
-
-For a more complete module with functionalities like caching, check out [Matthew Weier O'Phinney]'s [PhlySimplePage module].
-
 Usage
 ---
 
-  1. Put your view templates inside the `pages` sub directory of a path registered as a `template_path_stack` of the [`ViewManager`](http://framework.zend.com/manual/2.2/en/modules/zend.view.quick-start.html#configuration)
+  1. Put your view templates inside the `pages` sub directory of a path registered as a `template_path_stack` with the [`ViewManager`](http://framework.zend.com/manual/2.2/en/modules/zend.view.quick-start.html#configuration).
   2. Add your routes specifying `MyPages\PageController` as the controller and the template name as the `page` param:
-     ```php
-         // somewhere in your router config
-         'static-page-route' => [
-             'type' => 'literal',
-             'options' => [
-                 'route' => '/static-page'
-                 'defaults' => [
-                     'controller' => 'MyPages\PageController',
-                     'page' => 'static-page-template',
-                 ],
-             ],
-         ]
-     ```
-     this will render the first resolved `pages/static-page-template.phtml` view template when the route matches `/static-page`.
+```php
+   // somewhere in your router config
+   'static-page-route' => [
+       'type' => 'literal',
+       'options' => [
+           'route' => '/static-page'
+           'defaults' => [
+               'controller' => 'MyPages\PageController',
+               'page' => 'static-page-template',
+           ],
+       ],
+   ]
+```
+this will render the first resolved `pages/static-page-template` view when the route matches `/static-page`.
+Of course, you can use any other resolver config that works for you.
 
 There are two settings you can change:
 ```php
@@ -42,6 +38,13 @@ There are two settings you can change:
 ],
 ```
 
+Credits
+---
+
+The module is just a brutal rip-off of the [Zend Framework web site PageController] module,
+written by [Matthew Weier O'Phinney]. All credits go to him.
+
+For a more complete module with functionalities like caching, check out [Matthew Weier O'Phinney]'s [PhlySimplePage module].
 
 [Zend Framework web site PageController]: //github.com/zendframework/zf-web/tree/master/module/PageController
 [Matthew Weier O'Phinney]: http://mwop.net
