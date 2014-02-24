@@ -36,18 +36,18 @@ class Bootstrap
         } else {
             include $zf2Path . '/Zend/Loader/AutoloaderFactory.php';
             include $zf2Path . '/Zend/Loader/ClassMapAutoloader.php';
-            AutoloaderFactory::factory(array(
-                'Zend\Loader\ClassMapAutoloader' => array(
+            AutoloaderFactory::factory([
+                'Zend\Loader\ClassMapAutoloader' => [
                     __DIR__. '/../autoload_classmap.php',
-                ),
-                'Zend\Loader\StandardAutoloader' => array(
+                ],
+                'Zend\Loader\StandardAutoloader' => [
                     'autoregister_zf' => true,
-                    'namespaces' => array(
+                    'namespaces' => [
                         __NAMESPACE__ => __DIR__ . '/' . __NAMESPACE__,
                         'MyPages' => __DIR__ . '/../src/MyPages',
-                    ),
-                ),
-            ));
+                    ],
+                ],
+            ]);
         }
 
     }

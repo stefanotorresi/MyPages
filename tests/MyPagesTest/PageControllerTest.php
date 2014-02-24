@@ -60,7 +60,7 @@ class PageControllerTest extends PHPUnit_Framework_TestCase
         $controller->setResolver(self::templateResolverFactory($page));
 
         $request    = new Request();
-        $routeMatch = new RouteMatch(array($controller->getRouteParamName() => $page));
+        $routeMatch = new RouteMatch([$controller->getRouteParamName() => $page]);
         $event      = new MvcEvent();
 
         $event->setRouteMatch($routeMatch);
@@ -81,7 +81,7 @@ class PageControllerTest extends PHPUnit_Framework_TestCase
     public function testNotFoundAction(PageController $controller)
     {
         $request    = new Request();
-        $routeMatch = new RouteMatch(array($controller->getRouteParamName() => 'idontexist'));
+        $routeMatch = new RouteMatch([$controller->getRouteParamName() => 'idontexist']);
         $event      = new MvcEvent();
 
         $event->setRouteMatch($routeMatch);
@@ -105,7 +105,7 @@ class PageControllerTest extends PHPUnit_Framework_TestCase
         $controller->setResolver(self::templateResolverFactory($fullTemplateName));
 
         $request    = new Request();
-        $routeMatch = new RouteMatch(array($controller->getRouteParamName() => $page));
+        $routeMatch = new RouteMatch([$controller->getRouteParamName() => $page]);
         $event      = new MvcEvent();
 
         $event->setRouteMatch($routeMatch);
@@ -123,8 +123,8 @@ class PageControllerTest extends PHPUnit_Framework_TestCase
      */
     public static function templateResolverFactory($page = null)
     {
-        return new TemplateMapResolver(array(
+        return new TemplateMapResolver([
             $page => __DIR__ . '/TestAssets/test.phtml'
-        ));
+        ]);
     }
 }

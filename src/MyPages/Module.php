@@ -20,12 +20,12 @@ class Module extends AbstractModule implements
      */
     public function getConfig()
     {
-        return array(
-            __NAMESPACE__ => array(
+        return [
+            __NAMESPACE__ => [
                 'route_param_name' => 'page',
                 'template_dir' => 'pages',
-            ),
-        );
+            ],
+        ];
     }
 
     /**
@@ -35,17 +35,17 @@ class Module extends AbstractModule implements
     {
         $module = $this;
 
-        return array(
-            'factories' => array(
+        return [
+            'factories' => [
                 __NAMESPACE__ . '\PageController' => function (ControllerManager $cm) use ($module) {
                     $config = $cm->getServiceLocator()->get('config')[__NAMESPACE__];
 
                     return new PageController($config['route_param_name'], $config['template_dir']);
                 }
-            ),
-            'aliases' => array(
+            ],
+            'aliases' => [
                 'page' => __NAMESPACE__ . '\PageController',
-            ),
-        );
+            ],
+        ];
     }
 }
